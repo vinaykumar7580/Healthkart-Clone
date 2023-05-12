@@ -140,7 +140,7 @@ function SingleProduct() {
           </Box>
         </Box>
         <Box className="second-title-box">
-          <Heading fontSize={["lg","xl","2xl"]} fontWeight={"semibold"}>{sdata && sdata?.title}</Heading>
+          <Heading fontSize={["lg","xl","2xl"]} fontWeight={"semibold"} color={"#00B5B7"}>{sdata && sdata?.title}</Heading>
           <br />
           <Heading fontSize={["lg","lg","xl"]} fontWeight={"semibold"}>
             Category: <span style={{ color: "#00B5B7" }}>{sdata?.category}</span>

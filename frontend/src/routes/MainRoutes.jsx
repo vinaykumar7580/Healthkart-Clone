@@ -13,6 +13,7 @@ import ProductData from "../pages/ProductData";
 import Product from "../pages/Product"
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
+import Orderpage from "../pages/Order";
 
 
 function MainRoutes() {
@@ -23,7 +24,7 @@ function MainRoutes() {
       <Route path="/product/:id" element={<SingleProduct />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="/payment" element={<PaymentPage />} />
-
+      <Route path="/order" element={<Orderpage/>}/>
       <Route
         path="/admin/admin_login"
         element={

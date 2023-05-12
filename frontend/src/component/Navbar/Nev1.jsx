@@ -6,12 +6,15 @@ import { BsCart } from 'react-icons/bs';
 import { FiSearch } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 import Home from '../../pages/Home';
+import axios from 'axios';
 
 
 
 
 
 const Nev1 = () => {
+  const [search,setsearch]=useState("")
+  const [data,setdata]=useState([])
 
   const [logout, setlogout] = useState(false)
 
@@ -43,6 +46,30 @@ const Nev1 = () => {
   }
 
   const navigate = useNavigate()
+
+  const SearchData=(e)=>{
+    setsearch(e.target.value)
+  }
+
+  useEffect(()=>{
+    fetchData(search)
+    console.log("search",search)
+  },[search])
+  console.log("vinaydata",data)
+  
+
+  const fetchData=(data)=>{
+    axios.get(`https://weak-ruby-bull-wear.cyclic.app/product?title=${data}`).then((res)=>{
+      console.log("hkjhdkahkdhkahdkashk",res.data.product)
+      setdata(res.data.product)
+    }).catch((err)=>{
+      console.log(err)
+    })
+  }
+
+  const handleNavigate1 = (id) => {
+    navigate(`/product/${id}`)
+  }
   return (
 
     <Box pl={20} pr={20} pt={"1%"} pb={"1%"} borderBottom={"2px solid #B0BEC5"}>
@@ -50,10 +77,45 @@ const Nev1 = () => {
 
         <Image src={logo} w={"20%"} onClick={() => navigate("/")} cursor={"pointer"} />
 
-        <InputGroup width={"40%"}>
+        <Box pos='relative'>
+        <InputGroup width={"150%"}>
           <InputLeftAddon children={<FiSearch />} backgroundColor={"white"} borderRight={"none"} />
-          <Input placeholder='Search for products & brands...' size='md' borderLeft={"none"} _focus={{ border: "none" }} focusBorderColor='grey' />
+          <Input onChange={SearchData} value={search} placeholder='Search for products & brands...' size='md' borderLeft={"none"} _focus={{ border: "none" }} focusBorderColor='grey' />
         </InputGroup>
+        {search!==""&&data.length>0?<> <Box   >
+             <Box overflow={'scroll'} width={"52vh"} maxH={'71vh'} zIndex={'100000'} bg='white' pos='absolute' borderRadius={"14px"} color='black' p='2' pt={"10"}>
+            {
+              data?.map((el)=>(
+                <Flex justifyContent={"space-between"} alignItems={"center"} gap={"20px"} padding={"5px"} cursor={"pointer"}>
+                  <Image w={"30%"} src={el.image[0]?.img}/>
+                  <h1 onClick={()=>handleNavigate1(el._id)}>{el.title}</h1>
+                </Flex>
+              ))
+            }
+           </Box></Box></>:""}
+           </Box>
+            {/* <Box pos='relative'>
+          <Box className="search-container" >
+           <select className="search-select">
+              <option>All</option>
+            </select>
+            <input onChange={SearchData} type="text" color={"black"} value={search}  className="search-input" />
+            <Box className="search-icon">
+              <i className="fa-solid fa-magnifying-glass"></i>
+            </Box>
+           </Box>
+         {search!==""&&data.length>0?<> <Box   >
+             <Box overflow={'scroll'} maxH={'71vh'} zIndex={'100000'} bg='white' pos='absolute' borderRadius={"14px"} color='black' p='2' pt={"10"}>
+            {
+              data?.map((el)=>(
+                <Box>
+                  <h1>{el.title}</h1>
+                <Image src={el.image[0]?.img}/>
+                </Box>
+              ))
+            }
+           </Box></Box></>:""}
+          </Box> */}
         <Flex justifyContent={"space-between"} alignItems={"center"} w={"15%"} gap={"2%"}>
           <Button backgroundColor={'teal.300'} color={"white"} _hover={{ backgroundColor: "teal.400" }} display={D2} onClick={() => navigate("/login")}>Login</Button>
           <Button backgroundColor={'teal.300'} color={"white"} _hover={{ backgroundColor: "teal.400" }} display={Display} onClick={logouts}>Logout</Button>

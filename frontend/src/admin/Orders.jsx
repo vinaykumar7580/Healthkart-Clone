@@ -52,11 +52,12 @@ const Orders = ({ orders }) => {
               <Tr key={i + 1}>
                 <Td>{i + 1}.</Td>
                 <Td>
-                  <Image w="60px" src={e.image[0].img} />
+                  <Image w="60px" src={e.image[0]?.img} />
                 </Td>
                 <Td>{e.category}</Td>
                 <Td>{e.title}</Td>
                 <Td>{e.price}</Td>
+                {/* <Td>{e.price.substring(0, 28).concat("...")}</Td> */}
                 <Td cursor="pointer">Pending</Td>
                 <Td cursor={"pointer"} onClick={() => deleteOrder(e._id)}>
                   <MdDeleteOutline />

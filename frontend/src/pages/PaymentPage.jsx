@@ -66,7 +66,7 @@ const PaymentPage = () => {
       headers: {
         Authorization: token,
       }
-    }).then((res) => navigate("/"))
+    }).then((res) => navigate("/order"))
   }
 
   let total = 0;

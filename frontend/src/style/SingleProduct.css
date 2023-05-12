@@ -4,7 +4,7 @@
 .big-box{
     width:77%;
     margin:auto;
-    margin-top:50px;
+    /* margin-top:10px; */
     display: flex;
     justify-content: space-between;
     align-items: top;
@@ -34,6 +34,7 @@
     display: grid;
     justify-content: top;
     align-items:center;
+    border:1px solid #00B5B7;
 
 }
 

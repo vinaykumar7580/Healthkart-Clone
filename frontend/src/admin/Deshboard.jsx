@@ -60,7 +60,7 @@ export const Deshboard = () => {
     axios
       .get(`https://weak-ruby-bull-wear.cyclic.app/product/product_count/`, {
         headers: {
-          Authorization: localStorage.getItem("admin_token"),
+          Authorization: `${JSON.parse(localStorage.getItem("tokenAdmin"))}`,
         },
       })
       .then((res) => {
@@ -73,7 +73,7 @@ export const Deshboard = () => {
     axios
       .get(`https://weak-ruby-bull-wear.cyclic.app/order/`, {
         headers: {
-          Authorization: localStorage.getItem("admin_token"),
+          Authorization: `${JSON.parse(localStorage.getItem("tokenAdmin"))}`,
         },
       })
       .then((res) => {
