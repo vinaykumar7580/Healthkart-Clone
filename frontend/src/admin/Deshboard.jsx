@@ -58,7 +58,7 @@ export const Deshboard = () => {
 
   const CountFun = () => {
     axios
-      .get(`https://weak-ruby-bull-wear.cyclic.app/product/product_count/`, {
+      .get(`https://healthkart-backend-u19g.onrender.com/product/product_count/`, {
         headers: {
           Authorization: `${JSON.parse(localStorage.getItem("tokenAdmin"))}`,
         },
@@ -71,7 +71,7 @@ export const Deshboard = () => {
 
   const OrderFun = () => {
     axios
-      .get(`https://weak-ruby-bull-wear.cyclic.app/order/`, {
+      .get(`https://healthkart-backend-u19g.onrender.com/order/`, {
         headers: {
           Authorization: `${JSON.parse(localStorage.getItem("tokenAdmin"))}`,
         },

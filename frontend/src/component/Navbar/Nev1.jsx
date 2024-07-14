@@ -18,7 +18,7 @@ const Nev1 = () => {
 
   const [logout, setlogout] = useState(false)
 
-  let token = JSON.parse(localStorage.getItem("token"))
+  let token = JSON.parse(localStorage.getItem("token")) || null
 
   useEffect(() => {
     if (token) {
@@ -40,8 +40,8 @@ const Nev1 = () => {
   }
 
   const logouts=()=>{
-    localStorage.setItem("token", JSON.stringify(""))
-    localStorage.setItem("userId", JSON.stringify(""))
+    localStorage.removeItem("token")
+    localStorage.removeItem("userId")
     setlogout(false)
   }
 
@@ -59,7 +59,7 @@ const Nev1 = () => {
   
 
   const fetchData=(data)=>{
-    axios.get(`https://weak-ruby-bull-wear.cyclic.app/product?title=${data}`).then((res)=>{
+    axios.get(`https://healthkart-backend-u19g.onrender.com/product?title=${data}`).then((res)=>{
       console.log("hkjhdkahkdhkahdkashk",res.data.product)
       setdata(res.data.product)
     }).catch((err)=>{

@@ -41,19 +41,19 @@ const Admin_login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLoad(true);
+    //setLoad(true);
     axios
-      .post("https://weak-ruby-bull-wear.cyclic.app/user/login", data)
+      .post("https://healthkart-backend-u19g.onrender.com/user/login", data)
       .then((res) => {
-        localStorage.setItem("tokenAdmin",JSON.stringify(res.data.token));
-        console.log("Login successfuly");
+        console.log("Login successfuly admin", res);
+        localStorage.setItem("tokenAdmin", JSON.stringify(res.data.token));
         window.location.href = "/admin/deshboard";
       })
       .catch((err) => {
         console.log(err);
-        setLoad(false);
+        //setLoad(false);
       });
-    setLoad(false);
+    //setLoad(false);
   };
 
   return (
@@ -74,14 +74,14 @@ const Admin_login = () => {
         <Avatar bg="teal.500" />
         <Heading color="teal.400">Welcome</Heading>
         <Box minW={{ base: "90%", md: "468px" }}>
-          <form>
+          <form onSubmit={handleSubmit}>
             <Stack
               spacing={4}
               p="1rem"
               backgroundColor="whiteAlpha.900"
               boxShadow="md"
             >
-              <FormControl onSubmit={handleSubmit}>
+              <FormControl >
                 <InputGroup>
                   <InputLeftElement
                     pointerEvents="none"
@@ -127,7 +127,7 @@ const Admin_login = () => {
                 variant="solid"
                 colorScheme="teal"
                 width="full"
-                onClick={handleSubmit}
+                
               >
                 {load ? "Please Wait...." : " Login"}
               </Button>

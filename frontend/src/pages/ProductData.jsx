@@ -120,7 +120,7 @@ import {
     const getProductData = ({ sort, category, discount, rating, price, page }) => {
       dispatch(getProductRequest());
       axios
-        .get("https://unusual-gold-button.cyclic.app/product", {
+        .get("https://healthkart-backend-u19g.onrender.com/product", {
           params: {
             sort: sort,
             category: category,
@@ -144,7 +144,7 @@ import {
     const getProductData1 = () => {
       dispatch(getProductRequest());
       axios
-        .get("https://unusual-gold-button.cyclic.app/product")
+        .get("https://healthkart-backend-u19g.onrender.com/product")
         .then((res) => {
           //console.log("res",res)
           dispatch(getProductSuccess(res.data.product));
@@ -159,7 +159,7 @@ import {
     }
   
     const hanleCartData=(item)=>{
-      fetch("https://unusual-gold-button.cyclic.app/cart/add",{
+      fetch("https://healthkart-backend-u19g.onrender.com/cart/add",{
         method:"POST",
         body:JSON.stringify(item),
         headers:{

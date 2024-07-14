@@ -46,7 +46,7 @@ function SingleProduct() {
   
 
   const handleGetData=()=>{
-    fetch(`https://weak-ruby-bull-wear.cyclic.app/product/single_product/${id}`,{
+    fetch(`https://healthkart-backend-u19g.onrender.com/product/single_product/${id}`,{
       method:"GET",
       headers:{
         "Content-Type":"application/json"
@@ -64,7 +64,7 @@ function SingleProduct() {
   const hanleCartData1=(item)=>{
    
     //console.log("payload",payload)
-    fetch("https://weak-ruby-bull-wear.cyclic.app/cart/add",{
+    fetch("https://healthkart-backend-u19g.onrender.com/cart/add",{
       method:"POST",
       body:JSON.stringify(item),
       headers:{

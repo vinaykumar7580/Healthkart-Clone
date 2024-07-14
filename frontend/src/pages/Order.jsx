@@ -42,7 +42,7 @@ import Nev2 from "../component/Navbar/Nev2";
     }, []);
   
     const hadleGetOrderData = () => {
-      fetch(`https://weak-ruby-bull-wear.cyclic.app/order/${JSON.parse(localStorage.getItem("userId"))}`, {
+      fetch(`https://healthkart-backend-u19g.onrender.com/order/${JSON.parse(localStorage.getItem("userId"))}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

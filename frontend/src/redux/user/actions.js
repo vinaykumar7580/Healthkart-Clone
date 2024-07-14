@@ -10,7 +10,7 @@ export const PostCartSuccess = (payload) => {
 //User Sign Up
 export const forSignup = (signupData) => (dispatch) => {
     dispatch({ type: SIGNUP_REQUEST });
-    return axios.post(`https://weak-ruby-bull-wear.cyclic.app/user/register`, signupData).then((res) => {
+    return axios.post(`https://healthkart-backend-u19g.onrender.com/user/register`, signupData).then((res) => {
         console.log(res);
         dispatch({ type: SIGNUP_SUCCESS });
         return true;
@@ -23,7 +23,7 @@ export const forSignup = (signupData) => (dispatch) => {
 //User Login 
 export const forLogin = (loginData) => (dispatch) => {
     dispatch({ type: LOGIN_REQUEST });
-    return axios.post(`https://weak-ruby-bull-wear.cyclic.app/user/login`, loginData).then((res) => {
+    return axios.post(`https://healthkart-backend-u19g.onrender.com/user/login`, loginData).then((res) => {
         console.log(res);
         dispatch({ type: LOGIN_SUCCESS });
         localStorage.setItem("token", JSON.stringify(res.data.token))
@@ -41,7 +41,7 @@ export const getCartItems = () => (dispatch) => {
     let id = JSON.parse(localStorage.getItem("userId"))
 
     console.log(token, id)
-    return axios.get(`https://weak-ruby-bull-wear.cyclic.app/cart/${id}`, {
+    return axios.get(`https://healthkart-backend-u19g.onrender.com/cart/${id}`, {
         headers: {
             Authorization: token,
         }
@@ -60,7 +60,7 @@ export const updateQuantity = (Q, id) => (dispatch) => {
     }
     const token = JSON.parse(localStorage.getItem("token"))
 
-    return axios.patch(`https://weak-ruby-bull-wear.cyclic.app/cart/update/${id}`, obj, {
+    return axios.patch(`https://healthkart-backend-u19g.onrender.com/cart/update/${id}`, obj, {
         headers: {
             Authorization: token,
         }
@@ -76,7 +76,7 @@ export const updateQuantity = (Q, id) => (dispatch) => {
 //Delete cart items
 export const deleteCartItem = (id) => (dispatch) => {
     const token = JSON.parse(localStorage.getItem("token"))
-    return axios.delete(`https://weak-ruby-bull-wear.cyclic.app/cart/delete/${id}`, {
+    return axios.delete(`https://healthkart-backend-u19g.onrender.com/cart/delete/${id}`, {
         headers: {
             Authorization: token,
         }
@@ -88,7 +88,7 @@ export const deleteCartItem = (id) => (dispatch) => {
 
 //Add orders
 export const addOrder = (orderData, id) => (dispatch) => {
-    axios.post(`https://weak-ruby-bull-wear.cyclic.app/order/add/${id}`, orderData).then((res) => {
+    axios.post(`https://healthkart-backend-u19g.onrender.com/order/add/${id}`, orderData).then((res) => {
 
     }).catch((err) => {
         console.log(err);

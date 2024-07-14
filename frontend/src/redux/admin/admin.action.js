@@ -7,7 +7,7 @@ import { getData } from "./ls";
 export const getOrdersData = (dispatch) => {
   dispatch({ type: types.LOADING });
   axios
-    .get(`https://weak-ruby-bull-wear.cyclic.app/order/`, {
+    .get(`https://healthkart-backend-u19g.onrender.com/order/`, {
       headers: {
         Authorization: `${JSON.parse(localStorage.getItem("tokenAdmin"))}`,
       },
@@ -22,7 +22,7 @@ export const getOrdersData = (dispatch) => {
 export const getProductsCount = (dispatch) => {
   dispatch({ type: types.LOADING });
   axios
-    .get(`https://weak-ruby-bull-wear.cyclic.app/product/product_count/`, {
+    .get(`https://healthkart-backend-u19g.onrender.com/product/product_count/`, {
       headers: {
         Authorization: `${JSON.parse(localStorage.getItem("tokenAdmin"))}`,
       },
@@ -37,7 +37,7 @@ export const getProductsCount = (dispatch) => {
 export const DeleteOrdersData = (id) => (dispatch) => {
   dispatch({ type: types.LOADING });
   axios
-    .delete(`https://weak-ruby-bull-wear.cyclic.app/cartProducts/${id}`, {
+    .delete(`https://healthkart-backend-u19g.onrender.com/cartProducts/${id}`, {
       headers: {
         Authorization: `${JSON.parse(localStorage.getItem("tokenAdmin"))}`,
       },
@@ -54,7 +54,7 @@ export const DeleteOrdersData = (id) => (dispatch) => {
 export const getAdminProducts = (dispatch) => {
   dispatch({ type: types.LOADING });
   axios
-    .get(`https://weak-ruby-bull-wear.cyclic.app/product/`, {
+    .get(`https://healthkart-backend-u19g.onrender.com/product/`, {
       headers: {
         Authorization: `${JSON.parse(localStorage.getItem("tokenAdmin"))}`,
       },
@@ -71,7 +71,7 @@ export const getAdminProducts = (dispatch) => {
 export const AddAdminProducts = (details) => async (dispatch) => {
   dispatch({ type: types.LOADING });
   axios
-    .post(`https://weak-ruby-bull-wear.cyclic.app/product/create`, details, {
+    .post(`https://healthkart-backend-u19g.onrender.com/product/create`, details, {
       headers: {
         Authorization: `${JSON.parse(localStorage.getItem("tokenAdmin"))}`,
       },
@@ -89,7 +89,7 @@ export const AddAdminProducts = (details) => async (dispatch) => {
 export const DeleteAdminProducts = (id) => async (dispatch) => {
   dispatch({ type: types.LOADING });
   axios
-    .delete(`https://weak-ruby-bull-wear.cyclic.app/product/delete/${id}`, {
+    .delete(`https://healthkart-backend-u19g.onrender.com/product/delete/${id}`, {
       headers: {
         Authorization: `${JSON.parse(localStorage.getItem("tokenAdmin"))}`,
       },
@@ -109,7 +109,7 @@ export const editAdminProducts = (id, changes) => async (dispatch) => {
   dispatch({ type: types.LOADING });
   axios
     .patch(
-      `https://weak-ruby-bull-wear.cyclic.app/product/update/${id}`,
+      `https://healthkart-backend-u19g.onrender.com/product/update/${id}`,
       changes,
       {
         headers: {
@@ -130,7 +130,7 @@ export const editAdminDetails = (id, changes) => async (dispatch) => {
   dispatch({ type: types.LOADING });
   axios
     .patch(
-      `https://weak-ruby-bull-wear.cyclic.app/users/adminUpdate/${id}`,
+      `https://healthkart-backend-u19g.onrender.com/users/adminUpdate/${id}`,
       changes,
       {
         headers: {

@@ -56,13 +56,13 @@ const PaymentPage = () => {
   const handleOder = () => {
     let id = JSON.parse(localStorage.getItem("userId"))
     let token = JSON.parse(localStorage.getItem("token"))
-    axios.post(`https://weak-ruby-bull-wear.cyclic.app/order/add/${id}`, cartItems, {
+    axios.post(`https://healthkart-backend-u19g.onrender.com/order/add/${id}`, cartItems, {
       headers: {
         Authorization: token,
       }
     }).then((res) => console.log(res))
 
-    axios.delete(`https://weak-ruby-bull-wear.cyclic.app/cart/deleteAll`, {
+    axios.delete(`https://healthkart-backend-u19g.onrender.com/cart/deleteAll`, {
       headers: {
         Authorization: token,
       }
